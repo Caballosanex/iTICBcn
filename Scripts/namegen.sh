@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    namegen.sh                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: alexsanc <alexsanc@iticbcn.cat>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/16 20:34:59 by alexsanc          #+#    #+#              #
+#    Updated: 2024/09/16 20:35:01 by alexsanc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #!/usr/bin/env bash
 
 # This script generates a new name for an input file based on the iTIC file naming structure.
