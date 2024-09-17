@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    namegen.sh                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alexsanc <alexsanc@iticbcn.cat>            +#+  +:+       +#+         #
+#    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 20:34:59 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/16 20:35:01 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/17 07:59:56 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

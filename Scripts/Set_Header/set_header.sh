@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    set_header.sh                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alexsanc <alexsanc@iticbcn.cat>            +#+  +:+       +#+         #
+#    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 20:35:23 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/16 20:35:24 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/17 08:00:08 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
