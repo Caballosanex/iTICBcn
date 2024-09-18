@@ -12,18 +12,6 @@
 
 #!/bin/bash
 
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    pythonette.sh                                      :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: alexsanc <alexsanc@student.42barcel>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/17 17:00:30 by alexsanc          #+#    #+#              #
-#    Updated: 2023/05/17 18:07:23 by alexsanc         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 ## This program automates the installation of pycodestyle and the creation of the alias pythonette
 ## The alias pythonette wil be used to check your PEP8 compliance of your python files.
 ## It will detect if you already have pycodestyle installed and if you already have the alias pythonette.
