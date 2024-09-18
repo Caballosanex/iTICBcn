@@ -6,7 +6,7 @@
 #    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 20:34:59 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/18 11:47:59 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/18 12:38:12 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ case $subject in
         newname="TUT_$date"
         ;;
     3)
-        # Special handling for GBD, ask if it's GBD or ASGBD, and ask for UF and AC
+        # Special handling for GBD, ask if it's GBD or ASGBD, and ask for RA and AC
         echo "You have selected GBD. Do you want to use:"
         echo "1. GBD"
         echo "2. ASGBD"
@@ -83,16 +83,16 @@ case $subject in
             exit 1
         fi
 
-        # Ask for UF (Unitat Formativa)
-        while true; do
-            echo "Please, enter the Unitat Formativa number (e.g., 1 for UF1, 2 for UF2):"
-            read uf
+        # Ask for RA (Resultat Avaluació)
+        while true;RAo
+    RA   echo "Please, enter the Resultat Avaluació number (e.g., 1 for RA1, 2 for RA2):"
+            read RA
 
-            if [[ "$uf" =~ ^[1-9][0-9]*$ ]]; then
-                uf="UF$uf"
+            if [[ "$RA" =~ ^[1-9][0-9]*$ ]]; then
+                RA="RA$RA"
                 break
             else
-                echo "Invalid input. Please enter a valid number for UF."
+                echo "Invalid input. Please enter a valid number for RA."
             fi
         done
 
@@ -123,7 +123,7 @@ case $subject in
         fi
 
         # Create the new name based on the GBD/ASGBD format
-        newname="${mod}_${uf}_${ac}_${lastname}_${firstname}"
+        newname="${mod}_${RA}_${ac}_${lastname}_${firstname}"
         ;;
     4)
         newname="ISO_$date"
