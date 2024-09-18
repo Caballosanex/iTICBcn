@@ -6,7 +6,7 @@
 #    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 20:34:59 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/18 12:38:12 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/18 12:43:58 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,23 +69,9 @@ case $subject in
         newname="TUT_$date"
         ;;
     3)
-        # Special handling for GBD, ask if it's GBD or ASGBD, and ask for RA and AC
-        echo "You have selected GBD. Do you want to use:"
-        echo "1. GBD"
-        echo "2. ASGBD"
-        read module_choice
-        if [[ "$module_choice" == "1" ]]; then
-            mod="M02"  # GBD
-        elif [[ "$module_choice" == "2" ]]; then
-            mod="M03"  # ASGBD
-        else
-            echo "Invalid choice. Exiting."
-            exit 1
-        fi
-
         # Ask for RA (Resultat Avaluació)
-        while true;RAo
-    RA   echo "Please, enter the Resultat Avaluació number (e.g., 1 for RA1, 2 for RA2):"
+        while true; do
+            echo "Please enter the Resultat Avaluació number (e.g., 1 for RA1, 2 for RA2):"
             read RA
 
             if [[ "$RA" =~ ^[1-9][0-9]*$ ]]; then
@@ -98,7 +84,7 @@ case $subject in
 
         # Ask for the Activity (AC) number
         while true; do
-            echo "Please, enter the Activity number (e.g., 1 for AC01, 2 for AC02):"
+            echo "Please enter the Activity number (e.g., 1 for AC01, 2 for AC02):"
             read ac
 
             if [[ "$ac" =~ ^[1-9][0-9]*$ ]]; then
@@ -110,10 +96,10 @@ case $subject in
         done
 
         # Ask for the last name and first name
-        echo "Please, enter your last name:"
+        echo "Please enter your last name:"
         read lastname
 
-        echo "Please, enter your first name:"
+        echo "Please enter your first name:"
         read firstname
 
         # Check for invalid characters in the last name and first name
@@ -123,7 +109,7 @@ case $subject in
         fi
 
         # Create the new name based on the GBD/ASGBD format
-        newname="${mod}_${RA}_${ac}_${lastname}_${firstname}"
+        newname="GBD_${RA}_${ac}_${lastname}_${firstname}"
         ;;
     4)
         newname="ISO_$date"
