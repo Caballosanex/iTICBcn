@@ -6,7 +6,7 @@
 #    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 20:34:59 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/17 07:59:56 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/18 11:47:59 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ done
 # Get the current date and time and store it in the variable "date".
 date=$(date +"%Y%m%d_%H%M%S")
 
-# Define the new filename based on the subject and date.
+# Define the new filename based on the subject and date, adding special behavior for GBD.
 newname=""
 case $subject in
     1)
@@ -69,7 +69,61 @@ case $subject in
         newname="TUT_$date"
         ;;
     3)
-        newname="GBD_$date"
+        # Special handling for GBD, ask if it's GBD or ASGBD, and ask for UF and AC
+        echo "You have selected GBD. Do you want to use:"
+        echo "1. GBD"
+        echo "2. ASGBD"
+        read module_choice
+        if [[ "$module_choice" == "1" ]]; then
+            mod="M02"  # GBD
+        elif [[ "$module_choice" == "2" ]]; then
+            mod="M03"  # ASGBD
+        else
+            echo "Invalid choice. Exiting."
+            exit 1
+        fi
+
+        # Ask for UF (Unitat Formativa)
+        while true; do
+            echo "Please, enter the Unitat Formativa number (e.g., 1 for UF1, 2 for UF2):"
+            read uf
+
+            if [[ "$uf" =~ ^[1-9][0-9]*$ ]]; then
+                uf="UF$uf"
+                break
+            else
+                echo "Invalid input. Please enter a valid number for UF."
+            fi
+        done
+
+        # Ask for the Activity (AC) number
+        while true; do
+            echo "Please, enter the Activity number (e.g., 1 for AC01, 2 for AC02):"
+            read ac
+
+            if [[ "$ac" =~ ^[1-9][0-9]*$ ]]; then
+                ac=$(printf "AC%02d" "$ac")
+                break
+            else
+                echo "Invalid input. Please enter a valid number for Activity."
+            fi
+        done
+
+        # Ask for the last name and first name
+        echo "Please, enter your last name:"
+        read lastname
+
+        echo "Please, enter your first name:"
+        read firstname
+
+        # Check for invalid characters in the last name and first name
+        if [[ "$lastname" =~ [^a-zA-Z] || "$firstname" =~ [^a-zA-Z] ]]; then
+            echo "Error: Names contain invalid characters. Only alphabetic characters are allowed."
+            exit 1
+        fi
+
+        # Create the new name based on the GBD/ASGBD format
+        newname="${mod}_${uf}_${ac}_${lastname}_${firstname}"
         ;;
     4)
         newname="ISO_$date"
@@ -86,21 +140,11 @@ case $subject in
         ;;
 esac
 
-# The script must now ask for the syllabus that the file is related to. 
-echo "Please, enter the syllabus that the file is related to (avoid special characters):"
-read syllabus
-
-# Check for invalid characters in the syllabus
-if [[ "$syllabus" =~ [^a-zA-Z0-9_] ]]; then
-    echo "Error: Syllabus contains invalid characters. Only alphanumeric characters are allowed."
-    exit 1
-fi
-
-# Create the final filename including the extension if it exists.
+# Add the extension if it exists
 if [ -n "$extension" ]; then
-    final_name="$newname"_"$syllabus.$extension"
+    final_name="$newname.$extension"
 else
-    final_name="$newname"_"$syllabus"
+    final_name="$newname"
 fi
 
 # Show new filename and ask for confirmation before proceeding
