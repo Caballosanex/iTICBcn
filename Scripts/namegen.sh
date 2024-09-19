@@ -20,7 +20,7 @@ if [ $# -eq 1 ]; then
 else
   # If no argument is passed, ask for the file route
   echo "Please, enter the full path of the file you want to rename:"
-  read route
+  read -r route
 fi
 
 # Debug: print the file route
@@ -54,7 +54,7 @@ while true; do
     echo "4. ISO"
     echo "5. PAX"
     echo "6. LMSGI"
-    read subject
+    read -r subject
 
     if [[ "$subject" =~ ^[1-6]$ ]]; then
         break
@@ -70,7 +70,7 @@ case $subject in
         # Ask for RA (Resultat Avaluació)
         while true; do
             echo "Please enter the Resultat Avaluació number (e.g., 1 for RA1, 2 for RA2):"
-            read RA
+            read -r RA
 
             if [[ "$RA" =~ ^[1-9][0-9]*$ ]]; then
                 RA="RA$RA"
@@ -83,7 +83,7 @@ case $subject in
         # Ask for the Activity (AC) number
         while true; do
             echo "Please enter the Activity number (e.g., 1 for AC01, 2 for AC02):"
-            read ac
+            read -r ac
 
             if [[ "$ac" =~ ^[1-9][0-9]*$ ]]; then
                 ac=$(printf "AC%02d" "$ac")
@@ -95,10 +95,10 @@ case $subject in
 
         # Ask for the last name and first name
         echo "Please enter your last name:"
-        read lastname
+        read -r lastname
 
         echo "Please enter your first name:"
-        read firstname
+        read -r firstname
 
         # Check for invalid characters in the last name and first name
         if [[ "$lastname" =~ [^a-zA-Z] || "$firstname" =~ [^a-zA-Z] ]]; then
@@ -132,7 +132,7 @@ case $subject in
         # Special handling for GBD
         while true; do
             echo "Please enter the Resultat Avaluació number (e.g., 1 for RA1, 2 for RA2):"
-            read RA
+            read -r RA
 
             if [[ "$RA" =~ ^[1-9][0-9]*$ ]]; then
                 RA="RA$RA"
@@ -145,7 +145,7 @@ case $subject in
         # Ask for the Activity (AC) number
         while true; do
             echo "Please enter the Activity number (e.g., 1 for AC01, 2 for AC02):"
-            read ac
+            read -r ac
 
             if [[ "$ac" =~ ^[1-9][0-9]*$ ]]; then
                 ac=$(printf "AC%02d" "$ac")
@@ -157,10 +157,10 @@ case $subject in
 
         # Ask for the last name and first name
         echo "Please enter your last name:"
-        read lastname
+        read -r lastname
 
         echo "Please enter your first name:"
-        read firstname
+        read -r firstname
 
         # Check for invalid characters in the last name and first name
         if [[ "$lastname" =~ [^a-zA-Z] || "$firstname" =~ [^a-zA-Z] ]]; then
@@ -187,7 +187,7 @@ fi
 # Show new filename and ask for confirmation before proceeding
 echo "The file will be renamed to: $final_name"
 echo "Do you want to proceed? (y/n)"
-read confirmation
+read -r confirmation
 if [[ "$confirmation" != "y" ]]; then
     echo "Operation cancelled."
     exit 1
@@ -200,7 +200,7 @@ echo "Target path: $target_path"
 if [ -f "$target_path" ]; then
     echo "Warning: A file named $final_name already exists."
     echo "Do you want to overwrite it? (y/n)"
-    read overwrite
+    read -r overwrite
     if [[ "$overwrite" != "y" ]]; then
         echo "Operation cancelled."
         exit 1
