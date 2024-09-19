@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -6,11 +8,9 @@
 #    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/18 13:53:41 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/19 11:07:59 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/19 11:15:15 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#!/usr/bin/env bash
 
 # This script generates a new name for an input file based on the iTIC file naming structure.
 
