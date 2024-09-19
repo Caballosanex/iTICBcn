@@ -6,7 +6,7 @@
 #    By: alexsanc <2024_alex.sanchez@iticbcn.cat    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/18 13:53:41 by alexsanc          #+#    #+#              #
-#    Updated: 2024/09/18 13:53:42 by alexsanc         ###   ########.fr        #
+#    Updated: 2024/09/19 11:07:59 by alexsanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,19 +109,19 @@ case $subject in
         # Define subject names
         case $subject in
             1)
-                subject_name="FM_Sost"
+                subject_name="MFM_Sost"
                 ;;
             2)
-                subject_name="TUT"
+                subject_name="MTUT"
                 ;;
             4)
-                subject_name="ISO"
+                subject_name="MISO"
                 ;;
             5)
-                subject_name="PAX"
+                subject_name="MPAX"
                 ;;
             6)
-                subject_name="LMSGI"
+                subject_name="MLMSGI"
                 ;;
         esac
 
@@ -169,7 +169,7 @@ case $subject in
         fi
 
         # Create the new name based on the GBD/ASGBD format
-        newname="GBD_${RA}_${ac}_${lastname}_${firstname}"
+        newname="MGBD_${RA}_${ac}_${lastname}_${firstname}"
         ;;
     *)
         echo "Invalid option."
