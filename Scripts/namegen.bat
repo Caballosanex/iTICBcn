@@ -66,15 +66,6 @@ REM Demanar cognom i nom
 set /p lastname="Please enter your last name: "
 set /p firstname="Please enter your first name: "
 
-REM Comprovar que els noms no contenen caràcters invàlids
-for %%A in (%lastname% %firstname%) do (
-    echo %%A | findstr /R "[^a-zA-Z]" >nul
-    if not errorlevel 1 (
-        echo Error: Names contain invalid characters. Only alphabetic characters are allowed.
-        exit /b 1
-    )
-)
-
 REM Definir els noms de matèries i construir el nou nom
 if %subject%==1 (
     set subject_name=MFM_Sost
