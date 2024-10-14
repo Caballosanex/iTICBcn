@@ -11,7 +11,8 @@
 
 #### Clone the Repository
 ```sh
-git clone https://github.com/caballosanex/ContaCal.git
+git clone https://github.com/Caballosanex/iTICBcn.git
+cd Scripts
 cd ContaCal
 ```
 
@@ -31,7 +32,8 @@ gcc comptacal.c -o comptacal
 
 #### Clonar el Repositorio
 ```sh
-git clone https://github.com/caballosanex/ContaCal.git
+git clone https://github.com/Caballosanex/iTICBcn.git
+cd Scripts
 cd ContaCal
 ```
 
@@ -51,7 +53,8 @@ gcc comptacal.c -o comptacal
 
 #### Clonar el Repositori
 ```sh
-git clone https://github.com/caballosanex/ContaCal.git
+git clone https://github.com/Caballosanex/iTICBcn.git
+cd Scripts
 cd ContaCal
 ```
 
