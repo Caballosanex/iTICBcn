@@ -19,7 +19,7 @@ cd ContaCal
 
 #### Compile the Program
 ```sh
-gcc -o escales escales.c
+gcc -o comptacal comptacal.c
 ```
 
 #### Run the Program
@@ -41,7 +41,7 @@ cd ContaCal
 
 #### Compilar el Programa
 ```sh
-gcc -o escales escales.c
+gcc -o comptacal comptacal.c
 ```
 
 #### Ejecutar el Programa
@@ -63,7 +63,7 @@ cd ContaCal
 
 #### Compilar el Programa
 ```sh
-gcc -o escales escales.c
+gcc -o comptacal comptacal.c
 ```
 
 #### Executar el Programa
