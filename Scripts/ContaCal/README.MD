@@ -2,11 +2,16 @@
 
 ## English
 
+### What is `comptacal.c`?
+
+`comptacal.c` is a simple program that calculates the calories cosumed for every time you climb the damn stairs from itic.
+
+
 ### How to Use `comptacal.c`
 
 #### Clone the Repository
 ```sh
-git clone https://github.com/yourusername/ContaCal.git
+git clone https://github.com/caballosanex/ContaCal.git
 cd ContaCal
 ```
 
@@ -26,7 +31,7 @@ gcc comptacal.c -o comptacal
 
 #### Clonar el Repositorio
 ```sh
-git clone https://github.com/yourusername/ContaCal.git
+git clone https://github.com/caballosanex/ContaCal.git
 cd ContaCal
 ```
 
@@ -46,7 +51,7 @@ gcc comptacal.c -o comptacal
 
 #### Clonar el Repositori
 ```sh
-git clone https://github.com/yourusername/ContaCal.git
+git clone https://github.com/caballosanex/ContaCal.git
 cd ContaCal
 ```
 
