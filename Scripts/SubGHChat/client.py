@@ -8,46 +8,47 @@ import hashlib
 import base64
 import subprocess
 import sys
+import platform
 
-# Funció per instal·lar paquets necessaris
+# Function to install required packages
 
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-# Funció per comprovar la versió de Python
+# Function to check Python version
 
 
 def check_python_version():
     if sys.version_info < (3, 6):
-        print("Python 3.6 o superior és necessari. Actualitza Python.")
+        print("Python 3.6 or higher is required. Please update Python.")
         sys.exit(1)
 
-# Funció per comprovar la versió de pip
+# Function to check pip version
 
 
 def check_pip_version():
     try:
         pip_version = subprocess.check_output(
             [sys.executable, "-m", "pip", "--version"]).decode()
-        print("Versió de pip trobada:", pip_version)
+        print("Found pip version:", pip_version)
     except Exception as e:
-        print("Error trobant pip:", str(e))
-        print("Assegura't que pip està instal·lat.")
+        print("Error finding pip:", str(e))
+        print("Ensure pip is installed.")
         sys.exit(1)
 
-# Funció per validar i instal·lar paquets necessaris
+# Function to validate and install necessary packages
 
 
 def check_packages():
     try:
-        import cryptography  # Intenta importar la biblioteca
+        import cryptography  # Try importing the library
     except ImportError:
-        print("Paquet 'cryptography' no trobat. Instal·lant...")
+        print("Package 'cryptography' not found. Installing...")
         install("cryptography")
 
 
-# Comprovar les versions de Python i pip, i les biblioteques necessàries
+# Check Python, pip versions, and required packages
 check_python_version()
 check_pip_version()
 check_packages()
@@ -87,7 +88,7 @@ class SubGHzChat:
             freq_input = input(
                 "Enter frequency to operate (in Hz, default is 2.4GHz): ")
             if freq_input == "":
-                self.frequency = 2400000000  # Freqüència per defecte
+                self.frequency = 2400000000  # Default frequency
                 print("Default frequency (2.4GHz) selected.")
                 break
             try:
@@ -99,7 +100,8 @@ class SubGHzChat:
                 print("Invalid frequency. Please enter a positive integer.")
 
     def generate_id(self):
-        system_name = os.uname()[1]
+        # Use platform.node() for cross-platform compatibility
+        system_name = platform.node()
         timestamp = str(time.time()).encode()
         self.id = hashlib.sha256(system_name.encode() + timestamp).hexdigest()
 
@@ -111,7 +113,8 @@ class SubGHzChat:
         # Prefix the message with ID and counter
         counter_value = self.counter.get(self.id, 0) + 1
         self.counter[self.id] = counter_value
-        message_prefix = f"{self.id}:{counter_value}:".encode() + message.encode()  # Fixed line
+        message_prefix = f"{self.id}:{
+            counter_value}:".encode() + message.encode()
         ciphertext = encryptor.update(message_prefix) + encryptor.finalize()
         return iv + encryptor.tag + ciphertext
 
@@ -181,7 +184,11 @@ class SubGHzChat:
 
         # Create a TCP/IP socket
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((host, port))
+        try:
+            self.socket.connect((host, port))
+        except Exception as e:
+            print(f"Failed to connect to {host}:{port}. Error: {e}")
+            return
 
         # Start threads for sending and receiving messages
         self.stop_thread = False
@@ -236,4 +243,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
