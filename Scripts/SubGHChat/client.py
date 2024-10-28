@@ -111,8 +111,7 @@ class SubGHzChat:
         # Prefix the message with ID and counter
         counter_value = self.counter.get(self.id, 0) + 1
         self.counter[self.id] = counter_value
-        message_prefix = f"{self.id}:{
-            counter_value}:".encode() + message.encode()
+        message_prefix = f"{self.id}:{counter_value}:".encode() + message.encode()  # Fixed line
         ciphertext = encryptor.update(message_prefix) + encryptor.finalize()
         return iv + encryptor.tag + ciphertext
 
