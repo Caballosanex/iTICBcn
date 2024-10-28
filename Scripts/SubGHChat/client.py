@@ -4,7 +4,6 @@ import threading
 import time
 import hashlib
 import base64
-
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 
@@ -41,7 +40,11 @@ class SubGHzChat:
     def get_frequency(self):
         while True:
             freq_input = input(
-                "Enter frequency to operate (in Hz, e.g., 2400000000 for 2.4GHz): ")
+                "Enter frequency to operate (in Hz, default is 2.4GHz): ")
+            if freq_input == "":
+                self.frequency = 2400000000  # Freqüència per defecte
+                print("Default frequency (2.4GHz) selected.")
+                break
             try:
                 self.frequency = int(freq_input)
                 if self.frequency <= 0:
