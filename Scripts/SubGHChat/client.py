@@ -1,11 +1,56 @@
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 import os
 import socket
 import threading
 import time
 import hashlib
 import base64
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
+import subprocess
+import sys
+
+# Funció per instal·lar paquets necessaris
+
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Funció per comprovar la versió de Python
+
+
+def check_python_version():
+    if sys.version_info < (3, 6):
+        print("Python 3.6 o superior és necessari. Actualitza Python.")
+        sys.exit(1)
+
+# Funció per comprovar la versió de pip
+
+
+def check_pip_version():
+    try:
+        pip_version = subprocess.check_output(
+            [sys.executable, "-m", "pip", "--version"]).decode()
+        print("Versió de pip trobada:", pip_version)
+    except Exception as e:
+        print("Error trobant pip:", str(e))
+        print("Assegura't que pip està instal·lat.")
+        sys.exit(1)
+
+# Funció per validar i instal·lar paquets necessaris
+
+
+def check_packages():
+    try:
+        import cryptography  # Intenta importar la biblioteca
+    except ImportError:
+        print("Paquet 'cryptography' no trobat. Instal·lant...")
+        install("cryptography")
+
+
+# Comprovar les versions de Python i pip, i les biblioteques necessàries
+check_python_version()
+check_pip_version()
+check_packages()
 
 
 class SubGHzChat:
@@ -192,3 +237,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
